@@ -4,17 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.5'
 
 gem 'mimemagic', '0.3.7'
-
 gem 'carrierwave'
-
 gem 'mini_magick'
 
 gem 'bcrypt'
 
 gem 'pry-rails'
-
 gem 'better_errors'
-
 gem 'binding_of_caller'
 
 gem 'rails', '~> 5.2.3'
