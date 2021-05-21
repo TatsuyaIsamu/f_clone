@@ -3,7 +3,7 @@
     <%= msg %>
   <% end %>
 <% end %>
-<%= form_with(model: @user, local: true) do |form|%>
+<%= form_with(model: @user, local: true, url: new_or_edit) do |form|%>
   <div>
     <%= form.label :name %>
     <%= form.text_field :name, value: @user.name %>

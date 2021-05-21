@@ -1,0 +1,11 @@
+<h3>以下の内容で、登録する</h3>
+<%= form_with(model: @user,url: confirm_new_or_edit, method: confirm_form_method, local: true) do |form| %>
+  <%= form.hidden_field :name %>
+  <%= form.hidden_field :email %>
+  <%= form.hidden_field :password %>
+  <p>名前<%= @user.name %></p>
+  <p>メールアドレス<%= @user.email %></p>
+  <p>パスワード<%= @user.password %></p>
+  <%= form.submit  "登録する" %>
+  <%= form.submit "戻る", name: 'back' %>
+<% end %>

@@ -8,10 +8,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_para)
-    if @user.save
-      redirect_to user_path(@user.id)
-    else
+    if params[:back]
       render :new
+    else
+      if @user.save
+        redirect_to user_path(@user.id)
+      else
+        render :new
+      end
     end
   end
 
@@ -22,10 +26,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_para)
-      redirect_to user_path(@user.id)
-    else
+
+    if params[:back]
       render :edit
+    else
+      if @user.update(user_para)
+        redirect_to user_path(@user.id)
+      else
+        render :edit
+      end
     end
   end
 
@@ -34,9 +43,19 @@ class UsersController < ApplicationController
     redirect_to new_user_path
   end
 
+  def confirm
+    @user = User.new(user_para)
+    @user.id = params[:id]
+    if @user.id
+      render :edit if @user.invalid?
+    else
+      render :new if @user.invalid?
+    end
+  end
+
   private
    def user_para
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:id, :name, :email, :password)
    end
    
    def catch_user
