@@ -5,9 +5,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(name:"a",email:"c", password:"a" )
-    @user.save
-    redirect_to user_path(@user.id)
+    @user = User.new(user_para)
+    if @user.save
+      redirect_to user_path(@user.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -32,6 +35,6 @@ class UsersController < ApplicationController
 
   private
    def user_para
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :password)
    end
 end
