@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(name:"a",email:"b", password:"a" )
+    @user = User.new(name:"a",email:"c", password:"a" )
     @user.save
     redirect_to user_path(@user.id)
   end
@@ -22,6 +22,12 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.update(user_para)
     redirect_to user_path(@user.id)
+  end
+
+  def destroy
+    @user = User.find_by(id: params[:id])
+    @user.destroy
+    redirect_to new_user_path
   end
 
   private
