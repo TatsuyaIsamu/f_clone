@@ -23,8 +23,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.update(user_para)
-    redirect_to user_path(@user.id)
+    if @user.update(user_para)
+      redirect_to user_path(@user.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
