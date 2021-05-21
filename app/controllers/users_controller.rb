@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :catch_user, only:[:show, :edit, :update, :destroy]
+
   def new
     @user = User.new
   end
@@ -14,15 +16,12 @@ class UsersController < ApplicationController
   end
 
   def show
-   @user = User.find_by(id: params[:id])
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
   end
 
   def update
-    @user = User.find_by(id: params[:id])
     if @user.update(user_para)
       redirect_to user_path(@user.id)
     else
@@ -31,7 +30,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by(id: params[:id])
     @user.destroy
     redirect_to new_user_path
   end
@@ -39,5 +37,9 @@ class UsersController < ApplicationController
   private
    def user_para
     params.require(:user).permit(:name, :email, :password)
+   end
+   
+   def catch_user
+    @user = User.find_by(id: params[:id])
    end
 end
