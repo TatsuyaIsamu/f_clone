@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @picture = @user.pictures
   end
 
   def edit

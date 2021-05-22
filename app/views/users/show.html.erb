@@ -1,4 +1,10 @@
-<h1><%= @user.name %></h1>
-
+<h1>ユーザーネーム：<%= @user.name %></h1>
+<h2>投稿一覧</h2>
+<% @picture.each do |picture|%>
+ <p>
+    <%= link_to picture.content, picture_path(picture.id) %> 
+ </p>
+<% end %>
+<p>ユーザー情報変更</p>
 <%= link_to "編集", edit_user_path(@user.id)%>
 <%= link_to "退会", user_path, method: :delete ,data: { confirm: '本当に退会していいですか？' } %>
