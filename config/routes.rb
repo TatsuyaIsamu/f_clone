@@ -9,5 +9,5 @@ Rails.application.routes.draw do
         post :confirm
       end
   end
-  resources :sessions,  only: [:new, :create, :destrory]
+  resources :sessions,  only: [:new, :create, :destroy]
 end
