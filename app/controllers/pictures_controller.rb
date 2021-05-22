@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[ show edit update destroy ]
-  
+  skip_before_action :forbid_login_user
   # GET /pictures or /pictures.json
   def index
     @pictures = Picture.all
@@ -17,6 +17,7 @@ class PicturesController < ApplicationController
 
   # GET /pictures/1/edit
   def edit
+    redirect_to "/" if current_user.id != @picture.user.id
   end
 
   # POST /pictures or /pictures.json

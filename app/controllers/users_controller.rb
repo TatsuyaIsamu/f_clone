@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   before_action :catch_user, only:[:show, :edit, :update, :destroy]
-  # skip_before_action :login_required, only: [:new, :create, :confirm]
-  # skip_before_action :forbid_login_user, only: [:show, :edit, :update, :destroy, :confirm]
+  skip_before_action :login_required, only: [:new, :create, :confirm]
+  skip_before_action :forbid_login_user, only: [:show, :edit, :update, :destroy, :confirm]
   def new
     @user = User.new
   end
