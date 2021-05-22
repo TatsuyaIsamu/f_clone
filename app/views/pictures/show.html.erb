@@ -10,7 +10,8 @@
 </p>
 <p>投稿者：<%= @picture.user.name %></p>
 <% if current_user.id == @picture.user.id %>  
-<%= link_to 'Edit', edit_picture_path(@picture) %> 
-<%= link_to 'Destroy', picture_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to '編集', edit_picture_path(@picture) %> 
+<%= link_to '削除', picture_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end%>
-<%= link_to 'Back', pictures_path %>
+<%= link_to '戻る', pictures_path %>
+

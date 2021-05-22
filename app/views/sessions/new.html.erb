@@ -1,11 +1,11 @@
 <h1>ログイン画面</h1>
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f|%>
 <p><%= @error_message %></p>
-<div>
+<div class="name_box">
   <%= f.label :email %>
   <%= f.text_field :email, value: @email %> 
 </div>
-<div>
+<div class="password_box">
   <%= f.label :password %>
   <%= f.text_field :password %> 
 </div>
