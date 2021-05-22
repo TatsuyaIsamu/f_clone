@@ -9,6 +9,6 @@
   <strong>Content:</strong>
   <%= @picture.content %>
 </p>
-
+<p>投稿者：<%= @picture.user.name %></p>
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>
