@@ -1,15 +1,15 @@
 module UsersHelper
   
   def confirm_new_or_edit
-    unless @user.id? # params[:commit] == 'Create Blog'
-      users_path # create
+    unless @user.id? 
+      users_path 
     else
-      user_path #update
+      user_path 
     end
   end
 
     def confirm_form_method 
-      @user.id ? 'patch' : 'post' # 作成時はpost, 編集時は patchを指定
+      @user.id ? 'patch' : 'post' 
     end
 
     def new_or_edit
