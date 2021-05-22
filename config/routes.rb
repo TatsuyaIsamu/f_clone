@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/', to: "home#top"
   resources :pictures
   resources :users, only: [:edit, :new, :destroy, :create, :show, :update] do
       collection do

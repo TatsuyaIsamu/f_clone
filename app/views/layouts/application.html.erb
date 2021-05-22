@@ -11,7 +11,15 @@
 
   <body>
     <header>
-     
+      <%= link_to_unless_current "TOP", "/" %>
+      <% if logged_in?%>
+        <%= link_to "投稿一覧", pictures_path %>
+        <%= link_to "ユーザー情報", user_path(current_user.id) %>
+        <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+      <% else %>
+        <%= link_to "ログイン", new_session_path %>
+        <%= link_to "新規作成", new_user_path %>
+      <% end %>
     </header>
   
     <%= yield %>
