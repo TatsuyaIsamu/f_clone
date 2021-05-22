@@ -1,2 +1,13 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h1>ログイン画面</h1>
+<%= form_with(scope: :session, url: sessions_path, local: true) do |f|%>
+<p><%= @error_message %></p>
+<div>
+  <%= f.label :email %>
+  <%= f.text_field :email, value: @email %> 
+</div>
+<div>
+  <%= f.label :password %>
+  <%= f.text_field :password %> 
+</div>
+<%= f.submit "ログイン" %>
+<% end %>

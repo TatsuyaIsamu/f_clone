@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
   resources :pictures
   resources :users, only: [:edit, :new, :destroy, :create, :show, :update] do
       collection do
@@ -10,5 +9,5 @@ Rails.application.routes.draw do
         post :confirm
       end
   end
-  resorces :sessions,  only: [:new, :create, :destrory]
+  resources :sessions,  only: [:new, :create, :destrory]
 end
