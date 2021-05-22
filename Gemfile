@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+# ruby '2.6.5'
 
 gem 'mimemagic', '0.3.7'
 gem 'carrierwave'
